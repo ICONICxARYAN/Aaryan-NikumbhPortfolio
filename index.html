@@ -1,0 +1,4022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaryan Nikumbh | AI & Data Science Portfolio</title>
+    <meta name="description" content="Aaryan Nikumbh - Computer Engineering student specializing in Artificial Intelligence, Data Science, and Full Stack Development.">
+    <meta name="keywords" content="AI Developer, Data Science, Machine Learning, Computer Engineering, Anime Style Portfolio">
+    <meta name="author" content="Aaryan Nikumbh">
+    
+    <!-- Open Graph & Social Media Meta Tags -->
+    <meta property="og:title" content="Aaryan Nikumbh | AI & Data Science Portfolio">
+    <meta property="og:description" content="Anime-inspired portfolio of a Computer Engineering student specializing in AI and Data Science.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="demo.png">
+    <meta property="og:url" content="https://aaryannikumbh.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@aaryannikumbh">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0c0e1c">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aaryan Nilesh Nikumbh",
+      "jobTitle": "Computer Engineering Student",
+      "url": "https://aaryannikumbh.dev",
+      "image": "demo.png",
+      "email": "aryannikumbh2007@gmail.com",
+      "telephone": "+91-9112345575",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressCountry": "IN"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Fr. Conceicao Rodrigues College of Engineering"
+      },
+      "knowsAbout": ["Artificial Intelligence", "Data Science", "Python", "JavaScript", "SQL", "Machine Learning"],
+      "description": "Computer Engineering student specializing in Artificial Intelligence and Data Science.",
+      "sameAs": [
+        "https://github.com/aaryannikumbh",
+        "https://linkedin.com/in/aaryannikumbh",
+        "https://twitter.com/aaryannikumbh"
+      ]
+    }
+    </script>
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --anime-primary: #ff2a6d;
+            --anime-secondary: #05d9e8;
+            --anime-accent: #ffd166;
+            --anime-dark: #0c0e1c;
+            --anime-gray: #1a1d2e;
+            --anime-light: #d1d7e0;
+            --anime-glow: rgba(5, 217, 232, 0.7);
+            --success-green: #00ff88;
+            --warning-orange: #ffaa00;
+            --error-red: #ff3333;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        [data-theme="light"] {
+            --anime-dark: #f0f2ff;
+            --anime-light: #0c0e1c;
+            --anime-gray: #e0e5ff;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Roboto', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background-color: var(--anime-dark);
+            color: var(--anime-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: var(--transition);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.05) 0%, transparent 20%);
+            min-height: 100vh;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        :focus {
+            outline: 2px solid var(--anime-secondary);
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--anime-primary);
+            color: white;
+            padding: 8px;
+            z-index: 9999;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--anime-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .anime-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 8px solid transparent;
+            border-top-color: var(--anime-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-circle:nth-child(2) {
+            border-top-color: var(--anime-secondary);
+            animation-delay: 0.2s;
+        }
+
+        .loader-circle:nth-child(3) {
+            border-top-color: var(--anime-accent);
+            animation-delay: 0.4s;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--anime-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-toggle:hover {
+            background: var(--anime-gray);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .anime-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--anime-dark);
+                flex-direction: column;
+                padding: 20px;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 2px solid var(--anime-primary);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            
+            .anime-nav.active {
+                transform: translateY(0);
+            }
+            
+            .nav-item {
+                padding: 15px;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+            
+            .power-level {
+                display: none;
+            }
+        }
+
+        /* Header */
+        .anime-header {
+            background: rgba(12, 14, 28, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--anime-primary);
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.3);
+        }
+
+        .anime-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--anime-secondary), transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: var(--anime-primary);
+            font-size: 28px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--anime-primary), var(--anime-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+        }
+
+        /* Navigation */
+        .anime-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item {
+            position: relative;
+            color: var(--anime-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            transition: var(--transition);
+            font-family: 'Orbitron', sans-serif;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--anime-primary), var(--anime-secondary));
+            transition: var(--transition);
+        }
+
+        .nav-item:hover::before,
+        .nav-item.active::before {
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            color: var(--anime-secondary);
+            text-shadow: 0 0 10px var(--anime-glow);
+        }
+
+        /* Power Level */
+        .power-level {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .level-bar {
+            width: 100px;
+            height: 10px;
+            background: var(--anime-gray);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .level-fill {
+            width: 85%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--anime-primary), var(--anime-secondary));
+            border-radius: 5px;
+            animation: power-surge 3s infinite;
+        }
+
+        @keyframes power-surge {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--anime-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(255, 42, 109, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--anime-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(5, 217, 232, 0.3);
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--anime-gray);
+            z-index: 1001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--anime-primary), var(--anime-secondary));
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        /* Achievements Section */
+        .achievements-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .achievements-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .achievements-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        .achievement-category {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .achievement-category:hover {
+            border-color: var(--anime-primary);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.2);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .certificate-card {
+            background: rgba(12, 14, 28, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .certificate-card:hover {
+            border-color: var(--anime-secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(5, 217, 232, 0.2);
+        }
+
+        .certificate-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 42, 109, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--anime-primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .certificate-content {
+            flex: 1;
+        }
+
+        .certificate-content h4 {
+            color: var(--anime-light);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .certificate-content p {
+            color: var(--anime-light);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .certificate-date,
+        .certificate-status {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--anime-secondary);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .certificate-status {
+            color: var(--success-green);
+            margin-top: 5px;
+        }
+
+        /* Social Profiles */
+        .social-profiles {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-profile-card {
+            background: rgba(12, 14, 28, 0.7);
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .social-profile-card:hover {
+            border-color: var(--anime-primary);
+            transform: translateX(10px);
+            background: rgba(12, 14, 28, 0.9);
+        }
+
+        .social-profile-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .social-profile-content {
+            flex: 1;
+        }
+
+        .social-profile-content h4 {
+            color: var(--anime-light);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .social-profile-content p {
+            color: var(--anime-light);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-status {
+            font-size: 0.8rem;
+            color: var(--anime-secondary);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .social-profile-action {
+            color: var(--anime-light);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .social-profile-card:hover .social-profile-action {
+            opacity: 1;
+            color: var(--anime-primary);
+        }
+
+        /* Hero Section */
+        .anime-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 20px 50px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 42, 109, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(5, 217, 232, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--anime-primary), var(--anime-secondary), var(--anime-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--anime-primary), transparent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--anime-light);
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* Character Card */
+        .character-card {
+            background: rgba(26, 29, 46, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid var(--anime-primary);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                var(--anime-secondary)
+            );
+            animation: rotate 4s linear infinite;
+        }
+
+        .character-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: var(--anime-gray);
+            border-radius: 17px;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .character-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .character-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--anime-primary);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.5);
+        }
+
+        .character-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .character-avatar img.loaded {
+            opacity: 1;
+        }
+
+        .character-avatar::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, var(--anime-primary), var(--anime-secondary), var(--anime-primary));
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 3s linear infinite;
+        }
+
+        /* Stats */
+        .character-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            background: rgba(12, 14, 28, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--anime-secondary);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(5, 217, 232, 0.2);
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--anime-secondary);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--anime-light);
+            opacity: 0.8;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--anime-primary), var(--anime-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--anime-light);
+            opacity: 0.8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            border-color: var(--anime-primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.3);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--anime-primary), var(--anime-secondary));
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--anime-secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .skill-bar-container {
+            height: 10px;
+            background: rgba(12, 14, 28, 0.7);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--anime-primary), var(--anime-secondary));
+            border-radius: 5px;
+            width: 0;
+            position: relative;
+            transition: width 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 100px 20px;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(255, 42, 109, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(255, 42, 109, 0.9), 
+                rgba(5, 217, 232, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 42, 109, 0.2);
+            color: var(--anime-primary);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(255, 42, 109, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Education Timeline */
+        .education-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--anime-primary), var(--anime-secondary));
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 70px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 22px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--anime-primary);
+            border-radius: 50%;
+            border: 3px solid var(--anime-dark);
+        }
+
+        .timeline-date {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--anime-secondary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Live Code Editor */
+        .code-section {
+            padding: 100px 20px;
+        }
+
+        .code-editor {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--anime-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .editor-header {
+            background: rgba(12, 14, 28, 0.9);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--anime-primary);
+        }
+
+        .editor-content {
+            padding: 20px;
+        }
+
+        .code-display {
+            background: #1e1e1e;
+            border-radius: 5px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .code-output {
+            margin-top: 20px;
+            background: rgba(12, 14, 28, 0.7);
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            min-height: 50px;
+        }
+
+        /* Feedback System */
+        .feedback-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .feedback-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feedback-form {
+            background: var(--anime-gray);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid var(--anime-primary);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--anime-light);
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(12, 14, 28, 0.7);
+            border: 1px solid var(--anime-secondary);
+            border-radius: 8px;
+            color: var(--anime-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--anime-primary);
+            box-shadow: 0 0 0 2px rgba(255, 42, 109, 0.2);
+        }
+
+        .feedback-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feedback-option {
+            background: rgba(12, 14, 28, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .feedback-option:hover {
+            border-color: var(--anime-secondary);
+            transform: translateY(-5px);
+        }
+
+        .feedback-option.selected {
+            border-color: var(--anime-primary);
+            background: rgba(255, 42, 109, 0.1);
+        }
+
+        .option-icon {
+            font-size: 2rem;
+            color: var(--anime-secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            background: var(--anime-gray);
+            border-left: 4px solid var(--anime-primary);
+            padding: 15px 20px;
+            border-radius: 8px;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left-color: var(--success-green);
+        }
+
+        .toast.error {
+            border-left-color: var(--error-red);
+        }
+
+        .toast.warning {
+            border-left-color: var(--warning-orange);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* Resume Section */
+        .resume-section {
+            padding: 100px 20px;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-preview {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 2px solid var(--anime-primary);
+        }
+
+        .resume-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Skills Quiz */
+        .quiz-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--anime-gray);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid var(--anime-secondary);
+        }
+
+        .quiz-question {
+            margin-bottom: 30px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: rgba(12, 14, 28, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--anime-secondary);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--anime-primary);
+            background: rgba(255, 42, 109, 0.1);
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 100px 20px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 42, 109, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 20px;
+            background: rgba(12, 14, 28, 0.7);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--anime-gray);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(255, 42, 109, 0.2);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 42, 109, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--anime-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .anime-footer {
+            background: rgba(12, 14, 28, 0.9);
+            padding: 60px 20px 30px;
+            border-top: 2px solid var(--anime-primary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--anime-primary);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-link {
+            color: var(--anime-light);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-link:hover {
+            color: var(--anime-secondary);
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--anime-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--anime-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--anime-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--anime-light);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Modal System */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 14, 28, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--anime-gray);
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid var(--anime-primary);
+            animation: modalSlideUp 0.3s ease;
+        }
+
+        @keyframes modalSlideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--anime-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--anime-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        /* Animations */
+        .section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--anime-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--anime-primary), var(--anime-secondary));
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(var(--anime-secondary), var(--anime-primary));
+        }
+
+        /* Button Styles */
+        .anime-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 44px;
+        }
+
+        .anime-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .anime-btn:hover::before {
+            left: 100%;
+        }
+
+        .anime-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
+        }
+
+        .anime-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--anime-primary), #ff6b9d);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--anime-secondary);
+            color: var(--anime-secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--anime-secondary);
+            color: var(--anime-dark);
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, 
+                var(--anime-gray) 25%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                var(--anime-gray) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--anime-light);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lang-btn:hover {
+            background: var(--anime-gray);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--anime-dark);
+            border: 1px solid var(--anime-primary);
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 150px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .language-switcher:hover .lang-dropdown {
+            display: block;
+        }
+
+        .lang-option {
+            padding: 8px 12px;
+            color: var(--anime-light);
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        .lang-option:hover {
+            background: var(--anime-gray);
+            color: var(--anime-primary);
+        }
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--anime-gray);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--anime-secondary);
+            z-index: 10000;
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-consent.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .anime-header,
+            .mobile-nav-toggle,
+            .back-to-top,
+            .scroll-progress,
+            .cookie-consent,
+            .feedback-section,
+            .quiz-section {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .section {
+                opacity: 1 !important;
+                transform: none !important;
+                padding: 20px 0 !important;
+            }
+
+            .anime-btn {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="anime-loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+        </div>
+        <p style="margin-top: 20px; font-family: 'Orbitron', sans-serif; color: var(--anime-secondary);">
+            INITIALIZING PORTFOLIO... <span id="loadPercent">0%</span>
+        </p>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent" id="cookieConsent">
+        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">🍪 Cookie Consent</h3>
+        <p style="color: var(--anime-light); margin-bottom: 15px; opacity: 0.9;">
+            This website uses cookies to enhance your experience. By continuing to browse, you agree to our use of cookies.
+        </p>
+        <div style="display: flex; gap: 10px;">
+            <button class="anime-btn btn-primary" onclick="acceptCookies()">Accept All</button>
+            <button class="anime-btn btn-secondary" onclick="declineCookies()">Decline</button>
+            <button class="anime-btn" onclick="showCookieSettings()" style="background: transparent; border: 1px solid var(--anime-light);">Settings</button>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="anime-header">
+        <div class="logo">
+            <i class="fas fa-robot logo-icon"></i>
+            <span class="logo-text">AARYAN_DEV</span>
+        </div>
+        
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="anime-nav" id="mainNav">
+            <a href="#home" class="nav-item active">HOME</a>
+            <a href="#skills" class="nav-item">SKILLS</a>
+            <a href="#projects" class="nav-item">PROJECTS</a>
+            <a href="#education" class="nav-item">EDUCATION</a>
+            <a href="#achievements" class="nav-item">ACHIEVEMENTS</a>
+            <a href="#resume" class="nav-item">RESUME</a>
+            <a href="#blog" class="nav-item">BLOG</a>
+            <a href="#contact" class="nav-item">CONTACT</a>
+            
+            <div class="language-switcher">
+                <button class="lang-btn">
+                    <i class="fas fa-language"></i> EN
+                </button>
+                <div class="lang-dropdown">
+                    <a href="#" class="lang-option" data-lang="en">English</a>
+                    <a href="#" class="lang-option" data-lang="hi">हिन्दी</a>
+                    <a href="#" class="lang-option" data-lang="mr">मराठी</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="power-level">
+            <span style="color: var(--anime-secondary);">POWER LEVEL:</span>
+            <div class="level-bar">
+                <div class="level-fill"></div>
+            </div>
+            <span style="color: var(--anime-primary); font-weight: bold;">85%</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="anime-hero section">
+            <div class="hero-bg"></div>
+            <div class="hero-grid">
+                <div class="hero-content glitch-container">
+                    <div class="channel-badge" style="background: var(--anime-primary); color: white; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; font-family: 'Orbitron', sans-serif;">
+                        <i class="fas fa-bolt"></i> COMPUTER ENGINEERING STUDENT
+                    </div>
+                    <h1 class="hero-title glitch-text" data-text="AARYAN NIKUMBH">
+                        AARYAN NIKUMBH
+                    </h1>
+                    <p class="hero-subtitle">
+                        Passionate about <span style="color: var(--anime-primary);">Artificial Intelligence</span>, 
+                        <span style="color: var(--anime-secondary);">Data Science</span>, and building intelligent systems 
+                        that solve real-world problems. Currently pursuing Computer Engineering at 
+                        Fr. Conceicao Rodrigues College of Engineering.
+                    </p>
+                    
+                    <div style="display: flex; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
+                        <button class="anime-btn btn-primary" onclick="scrollToSection('projects')">
+                            <i class="fas fa-rocket"></i> VIEW PROJECTS
+                        </button>
+                        <button class="anime-btn btn-secondary" onclick="openResumeModal()">
+                            <i class="fas fa-file-download"></i> DOWNLOAD RESUME
+                        </button>
+                        <button class="anime-btn" style="background: transparent; border: 2px solid var(--anime-accent); color: var(--anime-accent);" onclick="startQuiz()">
+                            <i class="fas fa-brain"></i> TEST MY SKILLS
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats" style="display: flex; gap: 40px; margin-top: 60px; flex-wrap: wrap;">
+                        <div class="hero-stat">
+                            <span class="stat-number" style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--anime-primary);" id="projectCount">0</span>
+                            <span class="stat-label">PROJECTS</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number" style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--anime-secondary);" id="techCount">0</span>
+                            <span class="stat-label">TECHNOLOGIES</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number" style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--anime-accent);">100%</span>
+                            <span class="stat-label">PASSION</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="character-card">
+                    <div class="character-inner">
+                        <div class="character-avatar">
+                            <img src="demo.png" alt="Aaryan Nikumbh" id="profileImage" loading="lazy">
+                        </div>
+                        <h3 style="color: var(--anime-primary); font-family: 'Orbitron', sans-serif; margin-bottom: 10px;">
+                            AARYAN N. NIKUMBH
+                        </h3>
+                        <p style="color: var(--anime-light); margin-bottom: 20px;">
+                            AI Developer • Data Scientist • Tech Enthusiast
+                        </p>
+                        
+                        <div class="character-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">Lv. 25</span>
+                                <span class="stat-label">Developer Rank</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">85%</span>
+                                <span class="stat-label">AI Mastery</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">3/5</span>
+                                <span class="stat-label">Stars Collected</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">2029</span>
+                                <span class="stat-label">Graduation Year</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                            <a href="https://github.com/aaryannikumbh" class="social-link" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/aaryannikumbh" class="social-link" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="mailto:aryannikumbh2007@gmail.com" class="social-link" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section">
+            <div class="skills-container">
+                <div class="section-header">
+                    <h2 class="section-title">TECHNICAL SKILLS</h2>
+                    <p class="section-subtitle">Mastering the tools and technologies that power modern AI and web development</p>
+                </div>
+                
+                <div class="skill-cards">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Python Programming</h3>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 20px;">
+                            Advanced data analysis, AI/ML concepts, automation scripts, and backend development
+                        </p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="90" id="pythonSkill"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span style="color: var(--anime-secondary);">ADVANCED</span>
+                            <span style="color: var(--anime-primary); font-family: 'Orbitron', sans-serif;">90%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">JavaScript Development</h3>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 20px;">
+                            Interactive web applications, modern frameworks, and dynamic user interfaces
+                        </p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="80" id="jsSkill"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span style="color: var(--anime-secondary);">INTERMEDIATE</span>
+                            <span style="color: var(--anime-primary); font-family: 'Orbitron', sans-serif;">80%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">SQL & Databases</h3>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 20px;">
+                            Database design, management systems, complex queries, and optimization
+                        </p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="85" id="sqlSkill"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span style="color: var(--anime-secondary);">ADVANCED</span>
+                            <span style="color: var(--anime-primary); font-family: 'Orbitron', sans-serif;">85%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">AI & Machine Learning</h3>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 20px;">
+                            Neural networks, predictive models, data analysis, and ML algorithms
+                        </p>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-width="75" id="aiSkill"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span style="color: var(--anime-secondary);">INTERMEDIATE</span>
+                            <span style="color: var(--anime-primary); font-family: 'Orbitron', sans-serif;">75%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="anime-btn btn-secondary" onclick="viewAllSkills()">
+                        <i class="fas fa-expand"></i> VIEW ALL SKILLS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section">
+            <div class="projects-container">
+                <div class="section-header">
+                    <h2 class="section-title">FEATURED PROJECTS</h2>
+                    <p class="section-subtitle">Real-world applications and innovative solutions I've built</p>
+                </div>
+                
+                <div class="project-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card" onclick="openProjectModal(1)">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" 
+                             alt="Student Management System" class="project-image" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="anime-btn" style="background: rgba(12, 14, 28, 0.9);">
+                                <i class="fas fa-external-link-alt"></i> VIEW DETAILS
+                            </button>
+                        </div>
+                        <div class="project-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Student Information System</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                Comprehensive system for managing student data with CRUD operations and SQL database integration.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Tkinter</span>
+                                <span class="tech-tag">Database Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" onclick="openProjectModal(2)">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" 
+                             alt="AI Concepts" class="project-image" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="anime-btn" style="background: rgba(12, 14, 28, 0.9);">
+                                <i class="fas fa-external-link-alt"></i> VIEW DETAILS
+                            </button>
+                        </div>
+                        <div class="project-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">AI & Machine Learning</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                Exploring fundamental AI concepts through practical implementations and predictive models.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">AI/ML</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">Data Science</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card" onclick="openProjectModal(3)">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80" 
+                             alt="Web Development" class="project-image" loading="lazy">
+                        <div class="project-overlay">
+                            <button class="anime-btn" style="background: rgba(12, 14, 28, 0.9);">
+                                <i class="fas fa-external-link-alt"></i> VIEW DETAILS
+                            </button>
+                        </div>
+                        <div class="project-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Interactive Portfolio</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                Dynamic portfolio website with anime-inspired design and interactive elements.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Anime.js</span>
+                                <span class="tech-tag">Responsive Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="anime-btn btn-primary" onclick="viewAllProjects()">
+                        <i class="fas fa-rocket"></i> VIEW ALL PROJECTS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section section">
+            <div class="skills-container">
+                <div class="section-header">
+                    <h2 class="section-title">EDUCATION TIMELINE</h2>
+                    <p class="section-subtitle">My academic journey in computer engineering</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025 - 2029 (Expected)</div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 5px;">Fr. Conceicao Rodrigues College of Engineering, Mumbai</h3>
+                        <p style="color: var(--anime-light); opacity: 0.9; margin-bottom: 10px;">
+                            Bachelor of Technology in Computer Engineering
+                        </p>
+                        <ul style="color: var(--anime-light); opacity: 0.8; padding-left: 20px;">
+                            <li>Focus on Artificial Intelligence and Data Science</li>
+                            <li>Courses: Data Structures, Algorithms, Machine Learning, Web Development</li>
+                            <li>CGPA: 8.5/10 (Current)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Completed: 2025</div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 5px;">Higher Secondary Education (HSC)</h3>
+                        <p style="color: var(--anime-light); opacity: 0.9; margin-bottom: 10px;">
+                            Spectrum: Gateway to Success
+                        </p>
+                        <ul style="color: var(--anime-light); opacity: 0.8; padding-left: 20px;">
+                            <li>Science Stream with Computer Science</li>
+                            <li>Percentage: 85%</li>
+                            <li>Focus on Mathematics and Programming Fundamentals</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Completed: 2023</div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 5px;">Secondary Education (SSC)</h3>
+                        <p style="color: var(--anime-light); opacity: 0.9; margin-bottom: 10px;">
+                            Horizon Academy, Nashik
+                        </p>
+                        <ul style="color: var(--anime-light); opacity: 0.8; padding-left: 20px;">
+                            <li>Percentage: 92%</li>
+                            <li>Introduction to Computer Science</li>
+                            <li>Mathematics and Science Excellence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="achievements-section section">
+            <div class="achievements-container">
+                <div class="section-header">
+                    <h2 class="section-title">ACHIEVEMENTS & CERTIFICATIONS</h2>
+                    <p class="section-subtitle">Recognitions, certifications, and professional milestones</p>
+                </div>
+
+                <div class="achievements-grid">
+                    <!-- MATLAB Certificates -->
+                    <div class="achievement-category">
+                        <h3 style="color: var(--anime-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-certificate"></i> MATLAB Certifications
+                        </h3>
+                        <div class="certificates-grid">
+                            <!-- MATLAB Onramp -->
+                            <div class="certificate-card" onclick="openCertificate('matlab-onramp')">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>MATLAB Onramp</h4>
+                                    <p>MathWorks Training Services</p>
+                                    <span class="certificate-date">Nov 26, 2025</span>
+                                    <span class="certificate-status">Completed 100%</span>
+                                </div>
+                            </div>
+
+                            <!-- Signal Processing Onramp -->
+                            <div class="certificate-card" onclick="openCertificate('signal-processing')">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-wave-square"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>Signal Processing Onramp</h4>
+                                    <p>MathWorks Training Services</p>
+                                    <span class="certificate-date">Nov 27, 2025</span>
+                                    <span class="certificate-status">Completed 100%</span>
+                                </div>
+                            </div>
+
+                            <!-- Deep Learning Onramp -->
+                            <div class="certificate-card" onclick="openCertificate('deep-learning')">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>Deep Learning Onramp</h4>
+                                    <p>MathWorks Training Services</p>
+                                    <span class="certificate-date">Nov 27, 2025</span>
+                                    <span class="certificate-status">Completed 100%</span>
+                                </div>
+                            </div>
+
+                            <!-- Linear Algebra with MATLAB -->
+                            <div class="certificate-card" onclick="openCertificate('linear-algebra')">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>Linear Algebra with MATLAB</h4>
+                                    <p>MathWorks Training Services</p>
+                                    <span class="certificate-date">Nov 27, 2025</span>
+                                    <span class="certificate-status">Completed 100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Certifications -->
+                    <div class="achievement-category">
+                        <h3 style="color: var(--anime-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-award"></i> Other Achievements
+                        </h3>
+                        <div class="certificates-grid">
+                            <!-- Masai Career Talk -->
+                            <div class="certificate-card" onclick="openCertificate('masai-career-talk')">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>Masaverse Career Talks</h4>
+                                    <p>Thriving in the Age of AI Driven Work</p>
+                                    <span class="certificate-date">Nov 22, 2025</span>
+                                    <span class="certificate-status">Participation Certificate</span>
+                                </div>
+                            </div>
+
+                            <!-- Python & DSA -->
+                            <div class="certificate-card">
+                                <div class="certificate-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>Python Programming & DSA</h4>
+                                    <p>Kamal Classes</p>
+                                    <span class="certificate-date">2024</span>
+                                    <span class="certificate-status">Completed</span>
+                                </div>
+                            </div>
+
+                            <!-- SQL Database -->
+                            <div class="certificate-card">
+                                <div class="certificate-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="certificate-content">
+                                    <h4>SQL Database Management</h4>
+                                    <p>Kamal Classes</p>
+                                    <span class="certificate-date">2024</span>
+                                    <span class="certificate-status">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media & Profiles -->
+                    <div class="achievement-category">
+                        <h3 style="color: var(--anime-secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-globe"></i> Connect With Me
+                        </h3>
+                        <div class="social-profiles">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/aaryan-nikumbh-715079386/" target="_blank" class="social-profile-card">
+                                <div class="social-profile-icon" style="background: rgba(10, 102, 194, 0.1);">
+                                    <i class="fab fa-linkedin" style="color: #0A66C2;"></i>
+                                </div>
+                                <div class="social-profile-content">
+                                    <h4>LinkedIn</h4>
+                                    <p>Professional Network</p>
+                                    <span class="profile-status">Active | 700+ connections</span>
+                                </div>
+                                <div class="social-profile-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </a>
+
+                            <!-- Instagram -->
+                            <a href="https://instagram.com/aaryannikumbh" target="_blank" class="social-profile-card">
+                                <div class="social-profile-icon" style="background: rgba(225, 48, 108, 0.1);">
+                                    <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                                </div>
+                                <div class="social-profile-content">
+                                    <h4>Instagram</h4>
+                                    <p>Personal & Tech Updates</p>
+                                    <span class="profile-status">Sharing tech insights & projects</span>
+                                </div>
+                                <div class="social-profile-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </a>
+
+                            <!-- GitHub -->
+                            <a href="https://github.com/aaryannikumbh" target="_blank" class="social-profile-card">
+                                <div class="social-profile-icon" style="background: rgba(24, 23, 23, 0.1);">
+                                    <i class="fab fa-github" style="color: #181717;"></i>
+                                </div>
+                                <div class="social-profile-content">
+                                    <h4>GitHub</h4>
+                                    <p>Code Repository</p>
+                                    <span class="profile-status">Open Source Projects</span>
+                                </div>
+                                <div class="social-profile-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </a>
+
+                            <!-- Twitter -->
+                            <a href="https://twitter.com/aaryannikumbh" target="_blank" class="social-profile-card">
+                                <div class="social-profile-icon" style="background: rgba(29, 161, 242, 0.1);">
+                                    <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                                </div>
+                                <div class="social-profile-content">
+                                    <h4>Twitter</h4>
+                                    <p>Tech Thoughts & Updates</p>
+                                    <span class="profile-status">Tech discussions & networking</span>
+                                </div>
+                                <div class="social-profile-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="anime-btn btn-secondary" onclick="viewAllCertificates()">
+                        <i class="fas fa-certificate"></i> VIEW ALL CERTIFICATES
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Code Editor -->
+        <section id="code" class="code-section section">
+            <div class="code-editor">
+                <div class="editor-header">
+                    <span style="color: var(--anime-secondary); font-family: 'Orbitron', sans-serif;">
+                        <i class="fas fa-code"></i> LIVE CODE EDITOR
+                    </span>
+                    <button class="anime-btn" style="padding: 8px 20px; font-size: 0.9rem;" onclick="runCode()">
+                        <i class="fas fa-play"></i> RUN CODE
+                    </button>
+                </div>
+                <div class="editor-content">
+                    <div class="code-display">
+                        <pre style="color: #d4d4d4; font-family: 'Courier New', monospace;">
+<span style="color: #569cd6;"># Python - Student Management System</span>
+<span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">Student</span>:
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">__init__</span>(<span style="color: #9cdcfe;">self</span>, <span style="color: #9cdcfe;">name</span>, <span style="color: #9cdcfe;">age</span>, <span style="color: #9cdcfe;">email</span>):
+        <span style="color: #9cdcfe;">self</span>.name = name
+        <span style="color: #9cdcfe;">self</span>.age = age
+        <span style="color: #9cdcfe;">self</span>.email = email
+    
+    <span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">display</span>(<span style="color: #9cdcfe;">self</span>):
+        <span style="color: #569cd6;">return</span> <span style="color: #ce9178;">f"Student: {self.name}, Age: {self.age}, Email: {self.email}"</span>
+
+<span style="color: #569cd6;"># Create student instance</span>
+student1 = <span style="color: #4ec9b0;">Student</span>(<span style="color: #ce9178;">"John Doe"</span>, <span style="color: #b5cea8;">22</span>, <span style="color: #ce9178;">"john@example.com"</span>)
+<span style="color: #569cd6;">print</span>(student1.display())
+
+<span style="color: #569cd6;"># SQL Database Integration</span>
+<span style="color: #569cd6;">import</span> sqlite3
+
+<span style="color: #569cd6;">def</span> <span style="color: #dcdcaa;">create_database</span>():
+    conn = sqlite3.connect(<span style="color: #ce9178;">'students.db'</span>)
+    c = conn.cursor()
+    c.execute(<span style="color: #ce9178;">'''CREATE TABLE IF NOT EXISTS students
+                 (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, email TEXT)'''</span>)
+    conn.commit()
+    conn.close()
+
+<span style="color: #569cd6;"># Run the application</span>
+<span style="color: #569cd6;">if</span> <span style="color: #9cdcfe;">__name__</span> == <span style="color: #ce9178;">"__main__"</span>:
+    create_database()
+    <span style="color: #569cd6;">print</span>(<span style="color: #ce9178;">"Database created successfully!"</span>)</pre>
+                    </div>
+                    <div class="code-output" id="codeOutput">
+                        <span style="color: var(--anime-light); opacity: 0.7;">Click "Run Code" to see output...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="resume-section section">
+            <div class="resume-container">
+                <div class="section-header">
+                    <h2 class="section-title">RESUME & CERTIFICATIONS</h2>
+                    <p class="section-subtitle">Professional experience, certifications, and achievements</p>
+                </div>
+                
+                <div class="resume-preview">
+                    <h3 style="color: var(--anime-primary); margin-bottom: 20px; font-family: 'Orbitron', sans-serif;">Aaryan Nilesh Nikumbh</h3>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: var(--anime-secondary); margin-bottom: 15px;">🎓 Education</h4>
+                        <div style="background: rgba(12, 14, 28, 0.7); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <strong style="color: var(--anime-light);">B.Tech Computer Engineering</strong>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin: 5px 0;">Fr. Conceicao Rodrigues College of Engineering | 2025-2029</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: var(--anime-secondary); margin-bottom: 15px;">🏆 Certifications</h4>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 10px;">
+                            View all certifications and achievements in the <a href="#achievements" style="color: var(--anime-primary); text-decoration: none;">Achievements section</a>.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--anime-secondary); margin-bottom: 15px;">🛠️ Technical Skills</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span style="background: rgba(255, 42, 109, 0.2); color: var(--anime-primary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">Python</span>
+                            <span style="background: rgba(5, 217, 232, 0.2); color: var(--anime-secondary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">JavaScript</span>
+                            <span style="background: rgba(255, 42, 109, 0.2); color: var(--anime-primary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">SQL</span>
+                            <span style="background: rgba(5, 217, 232, 0.2); color: var(--anime-secondary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">C/C++</span>
+                            <span style="background: rgba(255, 42, 109, 0.2); color: var(--anime-primary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">AI/ML</span>
+                            <span style="background: rgba(5, 217, 232, 0.2); color: var(--anime-secondary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">Data Science</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-actions">
+                    <button class="anime-btn btn-primary" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> DOWNLOAD RESUME (PDF)
+                    </button>
+                    <button class="anime-btn btn-secondary" onclick="printResume()">
+                        <i class="fas fa-print"></i> PRINT RESUME
+                    </button>
+                    <button class="anime-btn" style="background: transparent; border: 2px solid var(--anime-accent); color: var(--anime-accent);" onclick="shareResume()">
+                        <i class="fas fa-share-alt"></i> SHARE RESUME
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Quiz Section -->
+        <section id="quiz" class="quiz-section section">
+            <div class="quiz-container">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <h2 class="section-title">SKILLS ASSESSMENT QUIZ</h2>
+                    <p class="section-subtitle">Test my knowledge with interactive questions</p>
+                </div>
+                
+                <div id="quizContent">
+                    <div class="quiz-question">
+                        <h3 style="color: var(--anime-light); margin-bottom: 20px;">What Python library is primarily used for data manipulation and analysis?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectAnswer(0, 0)">
+                                NumPy
+                            </div>
+                            <div class="quiz-option" onclick="selectAnswer(0, 1)">
+                                Pandas
+                            </div>
+                            <div class="quiz-option" onclick="selectAnswer(0, 2)">
+                                Matplotlib
+                            </div>
+                            <div class="quiz-option" onclick="selectAnswer(0, 3)">
+                                Scikit-learn
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="anime-btn btn-primary" onclick="submitQuiz()">
+                            <i class="fas fa-paper-plane"></i> SUBMIT ANSWER
+                        </button>
+                        <button class="anime-btn btn-secondary" onclick="nextQuestion()" style="margin-left: 15px;">
+                            <i class="fas fa-forward"></i> NEXT QUESTION
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="quizResults" style="display: none;">
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; background: var(--anime-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fas fa-trophy" style="font-size: 2rem; color: white;"></i>
+                        </div>
+                        <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Quiz Completed!</h3>
+                        <p style="color: var(--anime-light); margin-bottom: 20px;">You scored: <span id="quizScore" style="color: var(--anime-secondary); font-weight: bold;">0</span>/5</p>
+                        <button class="anime-btn btn-primary" onclick="restartQuiz()">
+                            <i class="fas fa-redo"></i> TRY AGAIN
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section section">
+            <div class="projects-container">
+                <div class="section-header">
+                    <h2 class="section-title">TECH BLOG & ARTICLES</h2>
+                    <p class="section-subtitle">Insights, tutorials, and thoughts on technology</p>
+                </div>
+                
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" 
+                             alt="AI Concepts" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Getting Started with Machine Learning</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                A beginner's guide to understanding ML concepts and building your first predictive model.
+                            </p>
+                            <button class="anime-btn" style="padding: 8px 20px; font-size: 0.9rem; background: transparent; border: 1px solid var(--anime-secondary);">
+                                Read Article →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80" 
+                             alt="Web Development" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Modern Web Development Trends</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                Exploring the latest technologies and best practices in frontend development.
+                            </p>
+                            <button class="anime-btn" style="padding: 8px 20px; font-size: 0.9rem; background: transparent; border: 1px solid var(--anime-secondary);">
+                                Read Article →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" 
+                             alt="Data Science" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <h3 style="color: var(--anime-primary); margin-bottom: 10px;">Data Visualization Techniques</h3>
+                            <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 15px;">
+                                How to effectively communicate insights through compelling data visualizations.
+                            </p>
+                            <button class="anime-btn" style="padding: 8px 20px; font-size: 0.9rem; background: transparent; border: 1px solid var(--anime-secondary);">
+                                Read Article →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback System -->
+        <section id="feedback" class="feedback-section section">
+            <div class="feedback-container">
+                <div class="section-header">
+                    <h2 class="section-title">FEEDBACK & CONTACT</h2>
+                    <p class="section-subtitle">Share your thoughts or get in touch with me</p>
+                </div>
+                
+                <div class="feedback-form">
+                    <div class="form-group">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-input" id="feedbackName" placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Contact Method</label>
+                        <div class="feedback-options">
+                            <div class="feedback-option" onclick="selectFeedbackMethod('email')" id="emailOption">
+                                <div class="option-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <span style="color: var(--anime-light);">Email</span>
+                            </div>
+                            <div class="feedback-option" onclick="selectFeedbackMethod('sms')" id="smsOption">
+                                <div class="option-icon">
+                                    <i class="fas fa-sms"></i>
+                                </div>
+                                <span style="color: var(--anime-light);">SMS</span>
+                            </div>
+                            <div class="feedback-option" onclick="selectFeedbackMethod('whatsapp')" id="whatsappOption">
+                                <div class="option-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <span style="color: var(--anime-light);">WhatsApp</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" id="contactLabel">Email Address</label>
+                        <input type="text" class="form-input" id="contactInfo" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input" id="feedbackMessage" rows="5" placeholder="Enter your feedback or message..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Feedback Type</label>
+                        <select class="form-input" id="feedbackType">
+                            <option value="general">General Feedback</option>
+                            <option value="project">Project Collaboration</option>
+                            <option value="job">Job Opportunity</option>
+                            <option value="question">Technical Question</option>
+                            <option value="suggestion">Website Suggestion</option>
+                        </select>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button class="anime-btn btn-primary" onclick="submitFeedback()">
+                            <i class="fas fa-paper-plane"></i> SEND FEEDBACK
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section">
+            <div class="contact-container">
+                <div class="section-header">
+                    <h2 class="section-title">GET IN TOUCH</h2>
+                    <p class="section-subtitle">Let's collaborate on exciting projects together</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--anime-light); margin-bottom: 5px;">Phone</h4>
+                                <p style="color: var(--anime-secondary);">+91 9112345575</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--anime-light); margin-bottom: 5px;">Email</h4>
+                                <p style="color: var(--anime-secondary);">aryannikumbh2007@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--anime-light); margin-bottom: 5px;">Location</h4>
+                                <p style="color: var(--anime-secondary);">Mumbai, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: var(--anime-light); margin-bottom: 5px;">Availability</h4>
+                                <p style="color: var(--anime-secondary);">Open for internships & projects</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--anime-gray); padding: 40px; border-radius: 15px;">
+                        <h3 style="color: var(--anime-primary); margin-bottom: 20px; font-family: 'Orbitron', sans-serif;">Quick Connect</h3>
+                        <p style="color: var(--anime-light); opacity: 0.8; margin-bottom: 30px;">
+                            Prefer a quicker way to connect? Use these direct links:
+                        </p>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <a href="https://wa.me/919112345575" target="_blank" class="anime-btn" style="background: #25D366; justify-content: flex-start;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Message
+                            </a>
+                            
+                            <a href="tel:+919112345575" class="anime-btn" style="background: var(--anime-primary); justify-content: flex-start;">
+                                <i class="fas fa-phone"></i> Direct Call
+                            </a>
+                            
+                            <a href="mailto:aryannikumbh2007@gmail.com?subject=Portfolio%20Inquiry" class="anime-btn" style="background: var(--anime-secondary); justify-content: flex-start;">
+                                <i class="fas fa-envelope"></i> Send Email
+                            </a>
+                            
+                            <a href="https://calendly.com/aaryannikumbh" target="_blank" class="anime-btn" style="background: transparent; border: 2px solid var(--anime-accent); color: var(--anime-accent); justify-content: flex-start;">
+                                <i class="fas fa-calendar"></i> Schedule Meeting
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="anime-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div>
+                    <h3>EXPLORE</h3>
+                    <div class="footer-links">
+                        <a href="#home" class="footer-link">Home</a>
+                        <a href="#skills" class="footer-link">Skills</a>
+                        <a href="#projects" class="footer-link">Projects</a>
+                        <a href="#education" class="footer-link">Education</a>
+                        <a href="#achievements" class="footer-link">Achievements</a>
+                        <a href="#resume" class="footer-link">Resume</a>
+                        <a href="#blog" class="footer-link">Blog</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>TECHNOLOGIES</h3>
+                    <div class="footer-links">
+                        <a href="#skills" class="footer-link">Python</a>
+                        <a href="#skills" class="footer-link">JavaScript</a>
+                        <a href="#skills" class="footer-link">SQL</a>
+                        <a href="#skills" class="footer-link">AI/ML</a>
+                        <a href="#skills" class="footer-link">Web Development</a>
+                        <a href="#skills" class="footer-link">Data Science</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>CONNECT</h3>
+                    <div class="footer-links">
+                        <a href="#contact" class="footer-link">Contact</a>
+                        <a href="#feedback" class="footer-link">Feedback</a>
+                        <a href="https://github.com/aaryannikumbh" target="_blank" class="footer-link">GitHub</a>
+                        <a href="https://linkedin.com/in/aaryannikumbh" target="_blank" class="footer-link">LinkedIn</a>
+                        <a href="mailto:aryannikumbh2007@gmail.com" class="footer-link">Email</a>
+                        <a href="tel:+919112345575" class="footer-link">Phone</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>LEGAL</h3>
+                    <div class="footer-links">
+                        <a href="#" onclick="showPrivacyPolicy()" class="footer-link">Privacy Policy</a>
+                        <a href="#" onclick="showTerms()" class="footer-link">Terms of Service</a>
+                        <a href="#" onclick="showCookieSettings()" class="footer-link">Cookie Settings</a>
+                        <a href="#" onclick="generateSitemap()" class="footer-link">Sitemap</a>
+                        <a href="#" onclick="showAccessibility()" class="footer-link">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links" style="justify-content: center; margin-top: 40px;">
+                <a href="https://github.com/aaryannikumbh" class="social-link" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/aaryannikumbh" class="social-link" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/aaryannikumbh" class="social-link" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/aaryannikumbh" class="social-link" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@aaryannikumbh" class="social-link" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://medium.com/@aaryannikumbh" class="social-link" target="_blank" aria-label="Medium">
+                    <i class="fab fa-medium"></i>
+                </a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aaryan Nilesh Nikumbh. All systems operational.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">
+                    <i class="fas fa-code"></i> Crafted with passion and anime energy | 
+                    <span id="visitorCount">0</span> visitors
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('projectModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <h2 id="modalProjectTitle" style="color: var(--anime-primary); margin-bottom: 20px;"></h2>
+                <div style="margin-bottom: 30px;">
+                    <img id="modalProjectImage" src="" alt="" style="width: 100%; height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px;">
+                    <p id="modalProjectDescription" style="color: var(--anime-light); line-height: 1.8;"></p>
+                </div>
+                
+                <div style="margin-bottom: 30px;">
+                    <h3 style="color: var(--anime-secondary); margin-bottom: 15px;">Technologies Used</h3>
+                    <div id="modalProjectTech" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                </div>
+                
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="anime-btn btn-primary" id="modalProjectGithub">
+                        <i class="fab fa-github"></i> View Code
+                    </button>
+                    <button class="anime-btn btn-secondary" id="modalProjectDemo">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="resumeModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('resumeModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <h2 style="color: var(--anime-primary); margin-bottom: 30px; text-align: center;">Download Resume</h2>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <div style="width: 150px; height: 200px; background: var(--anime-gray); border: 2px solid var(--anime-primary); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                        <i class="fas fa-file-pdf" style="font-size: 4rem; color: var(--anime-primary);"></i>
+                    </div>
+                    <p style="color: var(--anime-light);">Choose your preferred format:</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                    <div style="background: rgba(12, 14, 28, 0.7); padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: var(--transition);" onclick="downloadPDF()">
+                        <i class="fas fa-file-pdf" style="font-size: 2rem; color: var(--anime-primary); margin-bottom: 10px;"></i>
+                        <h4 style="color: var(--anime-light); margin-bottom: 5px;">PDF Format</h4>
+                        <p style="color: var(--anime-light); opacity: 0.8; font-size: 0.9rem;">Best for printing</p>
+                    </div>
+                    
+                    <div style="background: rgba(12, 14, 28, 0.7); padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: var(--transition);" onclick="downloadDOCX()">
+                        <i class="fas fa-file-word" style="font-size: 2rem; color: var(--anime-secondary); margin-bottom: 10px;"></i>
+                        <h4 style="color: var(--anime-light); margin-bottom: 5px;">DOCX Format</h4>
+                        <p style="color: var(--anime-light); opacity: 0.8; font-size: 0.9rem;">Editable version</p>
+                    </div>
+                    
+                    <div style="background: rgba(12, 14, 28, 0.7); padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: var(--transition);" onclick="viewOnline()">
+                        <i class="fas fa-eye" style="font-size: 2rem; color: var(--anime-accent); margin-bottom: 10px;"></i>
+                        <h4 style="color: var(--anime-light); margin-bottom: 5px;">View Online</h4>
+                        <p style="color: var(--anime-light); opacity: 0.8; font-size: 0.9rem;">Preview in browser</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('privacyModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <h2 style="color: var(--anime-primary); margin-bottom: 20px;">Privacy Policy</h2>
+                <div style="color: var(--anime-light); line-height: 1.8;">
+                    <p>This privacy policy explains how we collect, use, and protect your personal information...</p>
+                    <!-- Add full privacy policy content here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful');
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Initialize portfolio
+        document.addEventListener('DOMContentLoaded', function() {
+            initPortfolio();
+        });
+
+        // Portfolio initialization
+        function initPortfolio() {
+            // Initialize loading screen
+            initLoadingScreen();
+            
+            // Initialize navigation
+            initNavigation();
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+            
+            // Initialize animations
+            initAnimations();
+            
+            // Initialize cookie consent
+            initCookieConsent();
+            
+            // Initialize visitor counter
+            initVisitorCounter();
+            
+            // Initialize theme
+            initTheme();
+            
+            // Initialize image loading
+            initImageLoading();
+            
+            // Initialize feedback system
+            initFeedbackSystem();
+            
+            // Initialize skills quiz
+            initQuiz();
+            
+            // Initialize live code editor
+            initCodeEditor();
+        }
+
+        // Loading Screen
+        function initLoadingScreen() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadPercent = document.getElementById('loadPercent');
+            let progress = 0;
+            
+            const loadInterval = setInterval(() => {
+                progress += Math.random() * 20;
+                if (progress > 100) progress = 100;
+                loadPercent.textContent = Math.floor(progress) + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(loadInterval);
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = '0';
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            // Show cookie consent after loading
+                            setTimeout(() => {
+                                showCookieConsent();
+                            }, 1000);
+                        }, 500);
+                    }, 500);
+                }
+            }, 100);
+            
+            // Animate hero stats
+            const projectCount = document.getElementById('projectCount');
+            const techCount = document.getElementById('techCount');
+            
+            animateCounter(projectCount, 0, 8, 2000);
+            animateCounter(techCount, 0, 5, 2000);
+        }
+
+        // Counter Animation
+        function animateCounter(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Navigation
+        function initNavigation() {
+            const mobileNavToggle = document.getElementById('mobileNavToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            // Mobile navigation toggle
+            mobileNavToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileNavToggle.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile nav when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mainNav.contains(e.target) && !mobileNavToggle.contains(e.target) && mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-item').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            // Update active nav item
+                            document.querySelectorAll('.nav-item').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                            
+                            // Scroll to section
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile nav if open
+                            if (mainNav.classList.contains('active')) {
+                                mainNav.classList.remove('active');
+                                mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Language switcher
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            // Scroll progress bar
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('scrollProgress').style.width = scrolled + '%';
+                
+                // Show/hide back to top button
+                const backToTop = document.getElementById('backToTop');
+                if (winScroll > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+                
+                // Section reveal animations
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.75) {
+                        section.classList.add('visible');
+                    }
+                });
+                
+                // Update active nav based on scroll position
+                updateActiveNav();
+            });
+            
+            // Back to top button
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Update active navigation
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Animations
+        function initAnimations() {
+            // Animate skill bars when in view
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width + '%';
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            skillBars.forEach(bar => observer.observe(bar));
+            
+            // Initialize Anime.js animations
+            initAnimeJS();
+        }
+
+        // Anime.js Animations
+        function initAnimeJS() {
+            // Title glitch animation
+            const glitchText = document.querySelector('.glitch-text');
+            
+            setInterval(() => {
+                anime({
+                    targets: glitchText,
+                    translateX: () => anime.random(-5, 5),
+                    translateY: () => anime.random(-5, 5),
+                    duration: 100,
+                    easing: 'easeInOutSine'
+                });
+            }, 3000);
+            
+            // Power level animation
+            const levelFill = document.querySelector('.level-fill');
+            anime({
+                targets: levelFill,
+                width: ['0%', '85%'],
+                duration: 2000,
+                easing: 'easeOutElastic(1, .5)',
+                delay: 1000
+            });
+            
+            // Floating particles
+            createParticles();
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles';
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.left = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '-1';
+            document.body.appendChild(particlesContainer);
+            
+            const particleCount = 30;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = Math.random() > 0.5 ? 'var(--anime-primary)' : 'var(--anime-secondary)';
+                particle.style.borderRadius = '50%';
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                particlesContainer.appendChild(particle);
+                
+                anime({
+                    targets: particle,
+                    translateY: [
+                        { value: -20, duration: 0 },
+                        { value: () => Math.random() * -100 - 50, duration: () => Math.random() * 3000 + 2000 }
+                    ],
+                    translateX: [
+                        { value: 0, duration: 0 },
+                        { value: () => Math.random() * 100 - 50, duration: () => Math.random() * 3000 + 2000 }
+                    ],
+                    opacity: [
+                        { value: 0, duration: 0 },
+                        { value: Math.random() * 0.5 + 0.3, duration: 500 },
+                        { value: 0, duration: 500 }
+                    ],
+                    easing: 'easeInOutSine',
+                    loop: true,
+                    delay: Math.random() * 5000
+                });
+            }
+        }
+
+        // Cookie Consent
+        function initCookieConsent() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    showCookieConsent();
+                }, 2000);
+            }
+        }
+
+        function showCookieConsent() {
+            const consent = document.getElementById('cookieConsent');
+            consent.classList.add('show');
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            localStorage.setItem('cookiesAnalytics', 'true');
+            localStorage.setItem('cookiesMarketing', 'true');
+            hideCookieConsent();
+            showToast('Cookies accepted successfully!', 'success');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            localStorage.setItem('cookiesAnalytics', 'false');
+            localStorage.setItem('cookiesMarketing', 'false');
+            hideCookieConsent();
+            showToast('Cookies declined. Some features may be limited.', 'warning');
+        }
+
+        function showCookieSettings() {
+            hideCookieConsent();
+            // Implement cookie settings modal
+            showToast('Cookie settings coming soon!', 'info');
+        }
+
+        function hideCookieConsent() {
+            const consent = document.getElementById('cookieConsent');
+            consent.classList.remove('show');
+        }
+
+        // Visitor Counter
+        function initVisitorCounter() {
+            let count = localStorage.getItem('visitorCount') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Add theme toggle button if needed
+            // Implement theme switcher logic here
+        }
+
+        // Image Loading
+        function initImageLoading() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => {
+                        img.classList.add('loaded');
+                    });
+                    img.addEventListener('error', () => {
+                        console.warn('Failed to load image:', img.src);
+                    });
+                }
+            });
+        }
+
+        // Feedback System
+        function initFeedbackSystem() {
+            // Set default feedback method
+            selectFeedbackMethod('email');
+        }
+
+        function selectFeedbackMethod(method) {
+            // Update UI
+            document.querySelectorAll('.feedback-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            if (method === 'email') {
+                document.getElementById('emailOption').classList.add('selected');
+                document.getElementById('contactLabel').textContent = 'Email Address';
+                document.getElementById('contactInfo').placeholder = 'Enter your email';
+                document.getElementById('contactInfo').type = 'email';
+            } else if (method === 'sms') {
+                document.getElementById('smsOption').classList.add('selected');
+                document.getElementById('contactLabel').textContent = 'Phone Number';
+                document.getElementById('contactInfo').placeholder = 'Enter your phone number';
+                document.getElementById('contactInfo').type = 'tel';
+            } else if (method === 'whatsapp') {
+                document.getElementById('whatsappOption').classList.add('selected');
+                document.getElementById('contactLabel').textContent = 'WhatsApp Number';
+                document.getElementById('contactInfo').placeholder = 'Enter your WhatsApp number';
+                document.getElementById('contactInfo').type = 'tel';
+            }
+            
+            // Store selected method
+            window.selectedFeedbackMethod = method;
+        }
+
+        function submitFeedback() {
+            const name = document.getElementById('feedbackName').value.trim();
+            const contact = document.getElementById('contactInfo').value.trim();
+            const message = document.getElementById('feedbackMessage').value.trim();
+            const type = document.getElementById('feedbackType').value;
+            const method = window.selectedFeedbackMethod;
+            
+            // Validation
+            if (!name || !contact || !message) {
+                showToast('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Validate contact based on method
+            if (method === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(contact)) {
+                    showToast('Please enter a valid email address', 'error');
+                    return;
+                }
+            } else if (method === 'sms' || method === 'whatsapp') {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                if (!phoneRegex.test(contact.replace(/\D/g, ''))) {
+                    showToast('Please enter a valid phone number', 'error');
+                    return;
+                }
+            }
+            
+            // Prepare feedback data
+            const feedbackData = {
+                name,
+                contact,
+                message,
+                type,
+                method,
+                timestamp: new Date().toISOString(),
+                page: window.location.href,
+                userAgent: navigator.userAgent
+            };
+            
+            // Simulate sending feedback
+            // In production, this would send to your backend
+            console.log('Feedback submitted:', feedbackData);
+            
+            // Store in localStorage for demo purposes
+            let feedbacks = JSON.parse(localStorage.getItem('feedbacks') || '[]');
+            feedbacks.push(feedbackData);
+            localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+            
+            // Send to appropriate channel based on method
+            if (method === 'email') {
+                sendEmailFeedback(feedbackData);
+            } else if (method === 'sms') {
+                sendSMSFeedback(feedbackData);
+            } else if (method === 'whatsapp') {
+                sendWhatsAppFeedback(feedbackData);
+            }
+            
+            // Show success message
+            showToast('Feedback sent successfully! I\'ll get back to you soon.', 'success');
+            
+            // Clear form
+            document.getElementById('feedbackName').value = '';
+            document.getElementById('contactInfo').value = '';
+            document.getElementById('feedbackMessage').value = '';
+            
+            // Send notification to your email (simulated)
+            sendNotificationToOwner(feedbackData);
+        }
+
+        function sendEmailFeedback(data) {
+            // In production, use your email service (SendGrid, AWS SES, etc.)
+            const emailBody = `
+                New Feedback Received:
+                
+                Name: ${data.name}
+                Email: ${data.contact}
+                Type: ${data.type}
+                Method: ${data.method}
+                
+                Message:
+                ${data.message}
+                
+                Received: ${new Date(data.timestamp).toLocaleString()}
+                Page: ${data.page}
+            `;
+            
+            // Simulate sending email
+            console.log('Email feedback:', emailBody);
+            
+            // For demo purposes, create a mailto link
+            const subject = `Portfolio Feedback: ${data.type}`;
+            const body = encodeURIComponent(emailBody);
+            window.open(`mailto:aryannikumbh2007@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        }
+
+        function sendSMSFeedback(data) {
+            // Note: SMS requires a paid service like Twilio in production
+            // This is a simulation for demo purposes
+            const smsBody = `New feedback from ${data.name}: ${data.message.substring(0, 50)}...`;
+            console.log('SMS feedback (simulated):', smsBody);
+            
+            // For demo, show a message
+            showToast('SMS feedback recorded (SMS service would be integrated in production)', 'info');
+        }
+
+        function sendWhatsAppFeedback(data) {
+            // Create WhatsApp message link
+            const phone = '919112345575'; // Your WhatsApp number
+            const message = encodeURIComponent(`New feedback from ${data.name} (${data.type}): ${data.message}`);
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        function sendNotificationToOwner(data) {
+            // This would be a backend call in production
+            console.log('Notification sent to owner:', data);
+            
+            // You could integrate with:
+            // - Email notifications
+            // - Slack/Discord webhooks
+            // - Push notifications
+            // - Database storage
+        }
+
+        // Quiz System
+        let currentQuestion = 0;
+        let score = 0;
+        const quizQuestions = [
+            {
+                question: "What Python library is primarily used for data manipulation and analysis?",
+                options: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
+                correct: 1,
+                explanation: "Pandas is specifically designed for data manipulation and analysis with its DataFrame structure."
+            },
+            {
+                question: "Which SQL command is used to retrieve data from a database?",
+                options: ["INSERT", "UPDATE", "SELECT", "DELETE"],
+                correct: 2,
+                explanation: "The SELECT statement is used to query and retrieve data from a database."
+            },
+            {
+                question: "What does HTML stand for?",
+                options: [
+                    "Hyper Text Markup Language",
+                    "High Tech Modern Language",
+                    "Hyper Transfer Markup Language",
+                    "Home Tool Markup Language"
+                ],
+                correct: 0,
+                explanation: "HTML stands for Hyper Text Markup Language, the standard markup language for web pages."
+            }
+        ];
+
+        function initQuiz() {
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestion < quizQuestions.length) {
+                const question = quizQuestions[currentQuestion];
+                document.getElementById('quizContent').style.display = 'block';
+                document.getElementById('quizResults').style.display = 'none';
+                
+                // Update question and options
+                document.querySelector('.quiz-question h3').textContent = question.question;
+                const options = document.querySelectorAll('.quiz-option');
+                options.forEach((option, index) => {
+                    option.textContent = question.options[index];
+                    option.classList.remove('selected');
+                    option.onclick = () => selectAnswer(currentQuestion, index);
+                });
+            }
+        }
+
+        function selectAnswer(questionIndex, optionIndex) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            // Store selected answer
+            quizQuestions[questionIndex].selected = optionIndex;
+        }
+
+        function submitQuiz() {
+            const question = quizQuestions[currentQuestion];
+            if (question.selected === undefined) {
+                showToast('Please select an answer', 'warning');
+                return;
+            }
+            
+            if (question.selected === question.correct) {
+                score++;
+                showToast('Correct! ' + question.explanation, 'success');
+            } else {
+                showToast('Incorrect. ' + question.explanation, 'error');
+            }
+            
+            currentQuestion++;
+            
+            if (currentQuestion < quizQuestions.length) {
+                setTimeout(loadQuestion, 1500);
+            } else {
+                showResults();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizQuestions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quizContent').style.display = 'none';
+            document.getElementById('quizResults').style.display = 'block';
+            document.getElementById('quizScore').textContent = score;
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            quizQuestions.forEach(q => delete q.selected);
+            loadQuestion();
+        }
+
+        function startQuiz() {
+            scrollToSection('quiz');
+            restartQuiz();
+        }
+
+        // Code Editor
+        function initCodeEditor() {
+            // Code execution simulation
+            window.runCode = function() {
+                const output = document.getElementById('codeOutput');
+                output.innerHTML = `
+                    <span style="color: var(--success-green);">✓ Code executed successfully!</span><br><br>
+                    <span style="color: var(--anime-light);">Output:</span><br>
+                    <span style="color: var(--anime-secondary);">Student: John Doe, Age: 22, Email: john@example.com</span><br>
+                    <span style="color: var(--anime-secondary);">Database created successfully!</span>
+                `;
+                
+                // Animate output
+                anime({
+                    targets: output,
+                    scale: [0.9, 1],
+                    duration: 500,
+                    easing: 'spring(1, 80, 10, 0)'
+                });
+            };
+        }
+
+        // Certificate Viewer Functions
+        function openCertificate(certId) {
+            const certificates = {
+                'matlab-onramp': {
+                    title: "MATLAB Onramp Certificate",
+                    issuer: "MathWorks Training Services",
+                    date: "November 26, 2025",
+                    description: "Successfully completed 100% of the self-paced MATLAB Onramp training course, covering MATLAB fundamentals and programming concepts.",
+                    skills: ["MATLAB", "Programming", "Data Analysis", "Visualization"]
+                },
+                'signal-processing': {
+                    title: "Signal Processing Onramp Certificate",
+                    issuer: "MathWorks Training Services",
+                    date: "November 27, 2025",
+                    description: "Completed 100% of the Signal Processing Onramp course, mastering signal processing concepts using MATLAB.",
+                    skills: ["Signal Processing", "MATLAB", "Digital Filters", "FFT Analysis"]
+                },
+                'deep-learning': {
+                    title: "Deep Learning Onramp Certificate",
+                    issuer: "MathWorks Training Services",
+                    date: "November 27, 2025",
+                    description: "Achieved 100% completion in Deep Learning Onramp, covering neural networks and AI concepts with MATLAB.",
+                    skills: ["Deep Learning", "Neural Networks", "AI", "MATLAB"]
+                },
+                'linear-algebra': {
+                    title: "Linear Algebra with MATLAB Certificate",
+                    issuer: "MathWorks Training Services",
+                    date: "November 27, 2025",
+                    description: "Completed Introduction to Linear Algebra with MATLAB course with 100% score.",
+                    skills: ["Linear Algebra", "MATLAB", "Mathematics", "Matrix Operations"]
+                },
+                'masai-career-talk': {
+                    title: "Masaverse Career Talks Participation",
+                    issuer: "Masai",
+                    date: "November 22, 2025",
+                    description: "Successfully participated in the Masaverse Career Talks: Thriving in the Age of AI Driven Work.",
+                    skills: ["AI", "Career Development", "Industry Insights", "Networking"]
+                }
+            };
+
+            const cert = certificates[certId];
+            if (!cert) return;
+
+            // Create certificate modal content
+            const modalContent = `
+                <h2 style="color: var(--anime-primary); margin-bottom: 20px;">${cert.title}</h2>
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <div>
+                            <h4 style="color: var(--anime-secondary); margin-bottom: 5px;">Issued By</h4>
+                            <p style="color: var(--anime-light);">${cert.issuer}</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--anime-secondary); margin-bottom: 5px;">Date</h4>
+                            <p style="color: var(--anime-light);">${cert.date}</p>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="color: var(--anime-secondary); margin-bottom: 10px;">Description</h4>
+                        <p style="color: var(--anime-light); line-height: 1.8;">${cert.description}</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--anime-secondary); margin-bottom: 10px;">Skills Gained</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            ${cert.skills.map(skill => 
+                                `<span style="background: rgba(255, 42, 109, 0.2); color: var(--anime-primary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem;">${skill}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="anime-btn btn-primary" onclick="viewCertificateImage('${certId}')">
+                        <i class="fas fa-image"></i> View Certificate
+                    </button>
+                    <button class="anime-btn btn-secondary" onclick="downloadCertificate('${certId}')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            `;
+
+            // Create or update certificate modal
+            let certModal = document.getElementById('certificateModal');
+            if (!certModal) {
+                certModal = document.createElement('div');
+                certModal.id = 'certificateModal';
+                certModal.className = 'modal';
+                certModal.innerHTML = `
+                    <div class="modal-content">
+                        <button class="modal-close" onclick="closeModal('certificateModal')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="modal-body" id="certificateModalBody"></div>
+                    </div>
+                `;
+                document.body.appendChild(certModal);
+            }
+
+            document.getElementById('certificateModalBody').innerHTML = modalContent;
+            openModal('certificateModal');
+        }
+
+        function viewCertificateImage(certId) {
+            // In production, link to actual certificate images
+            const certImages = {
+                'matlab-onramp': 'MATLAB Onramp certificate (1).pdf',
+                'signal-processing': 'MATLAB Signal Processing Onramp certificate (1).pdf',
+                'deep-learning': 'MATLAB Deep Learning Onramp certificate (1).pdf',
+                'linear-algebra': 'MATLAB Linear Algebra certificate (1).pdf',
+                'masai-career-talk': 'Masaverse Career Talks certificate'
+            };
+
+            const fileName = certImages[certId];
+            if (fileName) {
+                showToast(`Opening ${fileName}`, 'info');
+                // In production: window.open(`/certificates/${fileName}`, '_blank');
+            }
+        }
+
+        function downloadCertificate(certId) {
+            showToast('Downloading certificate...', 'info');
+            // Simulate download
+            setTimeout(() => {
+                showToast('Certificate downloaded successfully!', 'success');
+            }, 1000);
+        }
+
+        function viewAllCertificates() {
+            scrollToSection('achievements');
+            showToast('Browse all certificates and achievements', 'info');
+        }
+
+        // Project Modals
+        function openProjectModal(projectId) {
+            const projects = {
+                1: {
+                    title: "Student Information System",
+                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
+                    description: "A comprehensive student management system built with Python and SQL. This system features CRUD operations, data validation, export functionality, and a user-friendly GUI using Tkinter. The application securely stores student records and provides various reports and analytics.",
+                    technologies: ["Python", "SQL", "Tkinter", "Database Design", "Data Validation", "Export to CSV"],
+                    github: "https://github.com/aaryannikumbh/student-management",
+                    demo: "#"
+                },
+                2: {
+                    title: "AI & Machine Learning Projects",
+                    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80",
+                    description: "Collection of AI and machine learning projects including predictive models, classification algorithms, and data analysis pipelines. Implemented various ML algorithms and explored deep learning concepts with TensorFlow and scikit-learn.",
+                    technologies: ["Python", "TensorFlow", "scikit-learn", "Pandas", "NumPy", "Jupyter Notebooks"],
+                    github: "https://github.com/aaryannikumbh/ai-projects",
+                    demo: "#"
+                },
+                3: {
+                    title: "Interactive Portfolio Website",
+                    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1674&q=80",
+                    description: "This very portfolio website! Built with modern web technologies featuring anime-inspired animations, interactive elements, and a responsive design. Includes a feedback system, live code editor, and skills assessment quiz.",
+                    technologies: ["HTML5", "CSS3", "JavaScript", "Anime.js", "Responsive Design", "PWA"],
+                    github: "https://github.com/aaryannikumbh/portfolio",
+                    demo: "#"
+                }
+            };
+            
+            const project = projects[projectId];
+            if (!project) return;
+            
+            document.getElementById('modalProjectTitle').textContent = project.title;
+            document.getElementById('modalProjectImage').src = project.image;
+            document.getElementById('modalProjectImage').alt = project.title;
+            document.getElementById('modalProjectDescription').textContent = project.description;
+            
+            const techContainer = document.getElementById('modalProjectTech');
+            techContainer.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.textContent = tech;
+                techContainer.appendChild(tag);
+            });
+            
+            document.getElementById('modalProjectGithub').onclick = () => window.open(project.github, '_blank');
+            document.getElementById('modalProjectDemo').onclick = () => window.open(project.demo, '_blank');
+            
+            openModal('projectModal');
+        }
+
+        // Resume Functions
+        function openResumeModal() {
+            openModal('resumeModal');
+        }
+
+        function downloadResume() {
+            // In production, link to actual PDF file
+            showToast('Downloading resume...', 'info');
+            // Simulate download
+            setTimeout(() => {
+                showToast('Resume downloaded successfully!', 'success');
+            }, 1000);
+        }
+
+        function downloadPDF() {
+            closeModal('resumeModal');
+            downloadResume();
+        }
+
+        function downloadDOCX() {
+            showToast('DOCX format selected (would download in production)', 'info');
+            closeModal('resumeModal');
+        }
+
+        function viewOnline() {
+            showToast('Opening resume in new tab...', 'info');
+            closeModal('resumeModal');
+            // In production, open PDF in new tab
+            window.open('#', '_blank');
+        }
+
+        function printResume() {
+            window.print();
+        }
+
+        function shareResume() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Aaryan Nikumbh - Resume',
+                    text: 'Check out my resume and portfolio',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback
+                showToast('Copy this link to share: ' + window.location.href, 'info');
+            }
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show').forEach(modal => {
+                    modal.classList.remove('show');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modals on outside click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Toast Notifications
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <div style="font-weight: 500; color: var(--anime-light); margin-bottom: 5px;">
+                            ${type === 'success' ? '✅' : type === 'error' ? '❌' : type === 'warning' ? '⚠️' : 'ℹ️'} 
+                            ${type.charAt(0).toUpperCase() + type.slice(1)}
+                        </div>
+                        <div style="color: var(--anime-light); opacity: 0.9; font-size: 0.9rem;">${message}</div>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: var(--anime-light); cursor: pointer; opacity: 0.7; padding: 5px;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Show animation
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (toast.parentElement) {
+                            toast.remove();
+                        }
+                    }, 300);
+                }
+            }, 5000);
+        }
+
+        // Utility Functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function viewAllSkills() {
+            scrollToSection('skills');
+            showToast('Scroll to see all technical skills', 'info');
+        }
+
+        function viewAllProjects() {
+            scrollToSection('projects');
+            showToast('Browse through all projects', 'info');
+        }
+
+        function changeLanguage(lang) {
+            // In production, implement actual translation
+            showToast(`Language changed to ${lang === 'en' ? 'English' : lang === 'hi' ? 'Hindi' : 'Marathi'} (demo)`, 'info');
+        }
+
+        function showPrivacyPolicy() {
+            openModal('privacyModal');
+        }
+
+        function showTerms() {
+            showToast('Terms of Service (would show modal in production)', 'info');
+        }
+
+        function showAccessibility() {
+            showToast('Accessibility features enabled', 'success');
+            // Implement accessibility features
+        }
+
+        function generateSitemap() {
+            const sitemap = `
+                Sitemap for https://aaryannikumbh.dev:
+                
+                1. Home (#home)
+                2. Skills (#skills)
+                3. Projects (#projects)
+                4. Education (#education)
+                5. Achievements (#achievements)
+                6. Resume (#resume)
+                7. Blog (#blog)
+                8. Feedback (#feedback)
+                9. Contact (#contact)
+                
+                Last updated: ${new Date().toLocaleDateString()}
+            `;
+            
+            showToast('Sitemap generated in console', 'info');
+            console.log(sitemap);
+        }
+
+        // Performance Monitoring
+        window.addEventListener('load', () => {
+            const timing = performance.timing;
+            const loadTime = timing.loadEventEnd - timing.navigationStart;
+            console.log(`Page load time: ${loadTime}ms`);
+            
+            // Report to analytics if enabled
+            if (localStorage.getItem('cookiesAnalytics') === 'true') {
+                // Send to analytics service
+                console.log('Analytics: Page loaded', {
+                    loadTime,
+                    url: window.location.href,
+                    timestamp: new Date().toISOString()
+                });
+            }
+        });
+
+        // PWA Features
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button
+            setTimeout(() => {
+                if (localStorage.getItem('pwaPromptShown') !== 'true') {
+                    showToast('Install this app for better experience!', 'info');
+                    localStorage.setItem('pwaPromptShown', 'true');
+                }
+            }, 10000);
+        });
+
+        // Offline Support
+        window.addEventListener('online', () => {
+            showToast('You are back online!', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            showToast('You are offline. Some features may be limited.', 'warning');
+        });
+
+        // Error Handling
+        window.addEventListener('error', (e) => {
+            console.error('Global error:', e.error);
+            // Send to error tracking service
+        });
+
+        // Page Visibility API
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                console.log('Page hidden');
+            } else {
+                console.log('Page visible');
+            }
+        });
+
+        // Battery Status API (if available)
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                if (battery.level < 0.2) {
+                    showToast('Low battery! Consider saving your work.', 'warning');
+                }
+            });
+        }
+
+        // Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered:', registration);
+                    })
+                    .catch(error => {
+                        console.log('SW registration failed:', error);
+                    });
+            });
+        }
+
+        // Print functionality
+        function printPage() {
+            window.print();
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + P to print
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                printPage();
+            }
+            
+            // Esc to close modals
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show').forEach(modal => {
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            // ? to show keyboard shortcuts
+            if (e.key === '?') {
+                showToast('Keyboard shortcuts: Ctrl+P (Print), Esc (Close modals), ? (This help)', 'info');
+            }
+        });
+
+        // Final initialization
+        console.log('Portfolio initialized successfully!');
+        console.log('Features loaded:');
+        console.log('- Anime-inspired animations');
+        console.log('- Interactive feedback system');
+        console.log('- SMS/Email integration');
+        console.log('- Live code editor');
+        console.log('- Skills assessment quiz');
+        console.log('- Achievements & Certifications section');
+        console.log('- PWA capabilities');
+        console.log('- Accessibility features');
+        console.log('- Performance monitoring');
+    </script>
+</body>
+</html>
